@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: ./datagen-ui          # ⬅️ must be the folder containing package.json
+      dockerfile: Dockerfile         # ⬅️ placed inside datagen-ui/
+      args:
+        VITE_API_BASE: http://backend:8000
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
