@@ -1,2 +1,3 @@
 # AI_Chat_Bot
-This is a. project for a simple ai bot.
+This is project for a simple ai bot.
+
